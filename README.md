@@ -28,3 +28,9 @@ Dependency
 ----------
 
 - This extension is dependent on the following extensions: [[MultiColumnWizard]](http://contao.org/de/extension-list/view/MultiColumnWizard.de.html)
+
+
+Screenshots
+-----------
+
+![Screenshot](https://raw.github.com/rsclg/RscTriathlonLeagueManager/master/screenshot.jpg)

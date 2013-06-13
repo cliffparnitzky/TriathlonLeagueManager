@@ -193,6 +193,14 @@ class tl_module_RscTriathlonLeagueManager extends Backend
 	public function getLeagueTableColumns (MultiColumnWizard $mcw)
 	{
 		$arrColumns = array();
+		$arrColumns['triathlonLeagueTablePlace'] = array
+		(
+			'label'            => &$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTablePlace'],
+			'exclude'          => true,
+			'inputType'        => 'text',
+			'eval'             => array('style'=>'width: 40px;')
+		);
+		
 		$arrColumns['triathlonLeagueTableTeam'] = array
 		(
 			'label'            => &$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableTeam'],
@@ -284,7 +292,13 @@ class tl_module_RscTriathlonLeagueManager extends Backend
 		{
 			usort($arrLeagueTable, array($this, 'comparePkt'));
 		}
-
+		
+		// now set the place number
+		foreach ($arrLeagueTable as $index => $entry)
+		{
+			$arrLeagueTable[$index]['triathlonLeagueTablePlace'] = ($index + 1);
+		}
+		
 		$this->Database->prepare("UPDATE tl_module SET triathlonLeagueTable = ? WHERE id = ?")
 					   ->execute(serialize($arrLeagueTable), $dc->id); 
 	}
