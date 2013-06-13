@@ -33,6 +33,7 @@
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueRatingType']         = array('Wertungstyp', 'Wählen Sie den Wertungstyp aus.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueColumns']            = array('Spalten', 'Wählen Sie die Spalten für die Erfassung der Punkte aus.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTable']              = array('Tabelle', 'Erfassen Sie die Liga Tabelle. Die Ausgabe wird automatisch nach den Puntespalten sortiert.');
+$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTablePlace']         = array('Platz', 'Vergeben Sie die Platznummer. Bei aktiver automatischer Sortierung wird die Platznummer dynamisch vergeben.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableTeam']          = array('Team', 'Wählen Sie das Team aus.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTablePoints']        = array('Punkte', 'Erfassen Sie die aktuelle Punktzahl des Teams.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableScoringPoints'] = array('Wertungspunkte', 'Erfassen Sie die aktuellen Wertungspunkte des Teams.');
