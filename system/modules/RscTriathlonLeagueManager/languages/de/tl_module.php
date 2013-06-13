@@ -37,6 +37,7 @@ $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableTeam']          = array('T
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTablePoints']        = array('Punkte', 'Erfassen Sie die aktuelle Punktzahl des Teams.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableScoringPoints'] = array('Wertungspunkte', 'Erfassen Sie die aktuellen Wertungspunkte des Teams.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTablePlaceNumber']   = array('Platzziffer', 'Erfassen Sie die aktuelle Platzziffer des Teams.');
+$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueAutoSortTable']      = array('Tabelle automatisch sortieren', 'Legen Sie fest, ob die Tabelle automatisch sortiert werden soll.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueUpdateDate']         = array('Stand (Datum der letzten Aktualisierung)', 'Erfassen Sie letzte Aktualisierungsdatum der Tabelle.');
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueRaceCount']          = array('Rennen x von y', 'Erfassen den Stand der Rennen. Wieviel Rennen (x) von y Rennen wurden bereits absoviert.');
 

@@ -17,7 +17,7 @@ CREATE TABLE `tl_triathlon_league_teams` (
   `name` varchar(255) NOT NULL default '',
   `ratingType` varchar(255) NOT NULL default '',
   `website` varchar(512) NOT NULL default '',
-  `ownTeam` char(1) NOT NULL default '', 
+  `ownTeam` char(1) NOT NULL default '',
   `logo` varchar(512) NOT NULL default '',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8; 
@@ -30,8 +30,9 @@ CREATE TABLE `tl_module` (
   `triathlonLeagueRatingType` varchar(255) NOT NULL default '',
   `triathlonLeagueColumns` varchar(255) NOT NULL default '',
   `triathlonLeagueTable` blob NULL,
+  `triathlonLeagueAutoSortTable` char(1) NOT NULL default '',
   `triathlonLeagueUpdateDate` varchar(255) NOT NULL default '',
   `triathlonLeagueRaceCount` varchar(255) NOT NULL default '',
-	`triathlonLeagueTableTemplate` varchar(255) NOT NULL default ''
+  `triathlonLeagueTableTemplate` varchar(255) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
  

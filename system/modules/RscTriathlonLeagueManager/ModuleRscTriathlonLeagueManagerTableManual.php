@@ -74,12 +74,11 @@ class ModuleRscTriathlonLeagueManagerTableManual extends Module {
 			$this->Template->setData($this->arrData);
 		} 
 		
-		$arrRaceCount = deserialize($this->triathlonLeagueRaceCount);
-		$this->Template->racesDone = $arrRaceCount[0];
-		$this->Template->racesTotal = $arrRaceCount[1];
-		
 		$this->Template->table = deserialize($this->triathlonLeagueTable);
 		$this->Template->teams = $this->getTeams();
+		
+		$arrRaceCount = deserialize($this->triathlonLeagueRaceCount);
+		$this->Template->tfoot = sprintf($GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['tfoot'], date('d.m.Y', $this->triathlonLeagueUpdateDate), $arrRaceCount[0], $arrRaceCount[1]);
 	}
 	
 		/**

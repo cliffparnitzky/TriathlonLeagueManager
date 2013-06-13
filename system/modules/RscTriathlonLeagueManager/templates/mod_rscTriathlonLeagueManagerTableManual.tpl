@@ -9,18 +9,18 @@
 <table cellspacing="0" cellpadding="0" border="0" class="ligatable">
 	<thead>
 		<tr>
-			<td>Platz</td>
-			<td colspan="1">Team</td>
+			<td><?php echo $GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['place']; ?></td>
+			<td><?php echo $GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['team']; ?></td>
 <?php if ($this->triathlonLeagueColumns == 'wp_pz'): ?>
-			<td>Wertungspunkte</td>
-			<td>Platzziffer</td>
+			<td><?php echo $GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['scoringPoints']; ?></td>
+			<td><?php echo $GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['placeNumber']; ?></td>
 <?php elseif ($this->triathlonLeagueColumns == 'pkt'): ?>
-			<td>Punkte</td>
+			<td><?php echo $GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['points']; ?></td>
 <?php endif; ?>
 		</tr>
 	</thead>
 	<tfoot>
-		<tr><td colspan="<?php if ($this->triathlonLeagueColumns == 'wp_pz'): ?>4<?php elseif ($this->triathlonLeagueColumns == 'pkt'): ?>3<?php endif; ?>">Stand <?php echo date('d.m.Y', $this->triathlonLeagueUpdateDate); ?> nach <?php echo $this->racesDone; ?> von <?php echo $this->racesTotal; ?> Rennen</td></tr>
+		<tr><td colspan="<?php if ($this->triathlonLeagueColumns == 'wp_pz'): ?>4<?php elseif ($this->triathlonLeagueColumns == 'pkt'): ?>3<?php endif; ?>"><?php echo $this->tfoot; ?></td></tr>
 	</tfoot>
 	<tbody>
 <?php foreach ($this->table as $index => $entry): ?>

@@ -37,11 +37,11 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['rscTriathlonLeagueManagerTableManua
 
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['triathlonLeagueRatingType_men_mixed'] = 'triathlonLeagueColumns'; 
 $GLOBALS['TL_DCA']['tl_module']['subpalettes']['triathlonLeagueRatingType_women']     = 'triathlonLeagueColumns'; 
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['triathlonLeagueColumns_pkt']          = 'triathlonLeagueTable,triathlonLeagueUpdateDate,triathlonLeagueRaceCount'; 
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['triathlonLeagueColumns_wp_pz']        = 'triathlonLeagueTable,triathlonLeagueUpdateDate,triathlonLeagueRaceCount'; 
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['triathlonLeagueColumns_pkt']          = 'triathlonLeagueTable,triathlonLeagueAutoSortTable,triathlonLeagueUpdateDate,triathlonLeagueRaceCount'; 
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['triathlonLeagueColumns_wp_pz']        = 'triathlonLeagueTable,triathlonLeagueAutoSortTable,triathlonLeagueUpdateDate,triathlonLeagueRaceCount'; 
 
 
-$GLOBALS['TL_DCA']['tl_module']['config']['onsubmit_callback'][] = array('tl_module_RscTriathlonLeagueManager', 'sortLeagueTable');
+$GLOBALS['TL_DCA']['tl_module']['config']['onsubmit_callback'][] = array('tl_module_RscTriathlonLeagueManager', 'storeLeagueTable');
 
 /**
  * Add fields to tl_module
@@ -78,9 +78,17 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTable'] = array
 		'style'           => 'min-width: 100%;',
 		'tl_class'        =>'clr',
 		'minCount'        => 1,
-		'buttons'         => array('up' => false, 'down' => false),
+		//'buttons'         => array('up' => false, 'down' => false),
 		'columnsCallback' =>array('tl_module_RscTriathlonLeagueManager', 'getLeagueTableColumns')
 	)
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueAutoSortTable'] = array
+(
+	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueAutoSortTable'],
+	'exclude'                 => true,
+	'inputType'               => 'checkbox',
+	'eval'                    => array('tl_class'=>'clr m12 w50', 'submitOnChange'=>true)
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueUpdateDate'] = array
@@ -248,10 +256,16 @@ class tl_module_RscTriathlonLeagueManager extends Backend
 	/**
 	 * SAVE CALLBACK to sort the table when saving.
 	 */
-	public function sortLeagueTable(DataContainer $dc)
+	public function storeLeagueTable(DataContainer $dc)
 	{
 		// Return if there is no active record (override all)
 		if (!$dc->activeRecord || $dc->activeRecord->dateAdded > 0)
+		{
+			return;
+		}
+		
+		// return if auto sort is inactive
+		if (!$dc->activeRecord->triathlonLeagueAutoSortTable)
 		{
 			return;
 		}
