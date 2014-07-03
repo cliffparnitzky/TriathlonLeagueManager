@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -10,34 +10,43 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this program. If not, please visit the Free
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
- * @package    RscTriathlonLeagueManager
+ * @package    TriathlonLeagueManager
  * @license    LGPL
  */
 
 /**
  * Backend modules
  */
-$GLOBALS['BE_MOD']['rscTriathlonLeagueManager']['triathlonLeagueTeams'] = array
+$GLOBALS['BE_MOD']['triathlonLeagueManager'] = array
 (
-	'tables' => array('tl_triathlon_league_teams'),
-	'icon'   => 'system/modules/RscTriathlonLeagueManager/html/icon_teams.png'
+	'triathlonLeagueTeams' => array
+	(
+		'tables' => array('tl_triathlon_league_teams'),
+		'icon'   => 'system/modules/TriathlonLeagueManager/html/icon_teams.png'
+	),
+	'triathlonLeagueTables' => array
+	(
+		'tables' => array('tl_triathlon_league_tables'),
+		'icon'   => 'system/modules/TriathlonLeagueManager/html/icon_tables.png'
+	)
 );
 
 /**
  * Front end module
  */
-$GLOBALS['FE_MOD']['rscTriathlonLeagueManager']['rscTriathlonLeagueManagerTableManual'] = 'ModuleRscTriathlonLeagueManagerTableManual'; 
+$GLOBALS['FE_MOD']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ModuleTriathlonLeagueManagerTable';
+
 ?>

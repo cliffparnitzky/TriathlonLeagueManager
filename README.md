@@ -1,5 +1,5 @@
-Contao Extension: RscTriathlonLeagueManager
-===========================================
+Contao Extension: TriathlonLeagueManager
+========================================
 
 Dient der Verwaltung von Triathlon Liga Ergebnissen und Tabellen
 
@@ -14,14 +14,14 @@ Install it manually.
 Tracker
 -------
 
-https://github.com/rsclg/RscTriathlonLeagueManager/issues
+https://github.com/cliffparnitzky/TriathlonLeagueManager/issues
 
 
 Compatibility
 -------------
 
 - min. version: Contao 2.9.5
-- max. version: Contao 2.9.5
+- max. version: Contao 2.11.x
 
 
 Dependency
@@ -33,4 +33,8 @@ Dependency
 Screenshots
 -----------
 
-![Screenshot](https://raw.github.com/rsclg/RscTriathlonLeagueManager/master/screenshot.jpg)
+![Screenshot Backend Tabellen](https://raw.github.com/cliffparnitzky/RscTriathlonLeagueManager/master/screenshot_backend_tables.jpg)
+
+![Screenshot Backend Tabellen](https://raw.github.com/cliffparnitzky/RscTriathlonLeagueManager/master/screenshot_backend_teams.jpg)
+
+![Screenshot Frontend Tabelle](https://raw.github.com/cliffparnitzky/RscTriathlonLeagueManager/master/screenshot_frontend_table.jpg)

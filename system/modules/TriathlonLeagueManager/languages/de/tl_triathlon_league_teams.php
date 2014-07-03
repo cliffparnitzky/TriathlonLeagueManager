@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,9 +21,9 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
- * @package    RscTriathlonLeagueManager
+ * @package    TriathlonLeagueManager
  * @license    LGPL
  */
 
@@ -41,12 +41,6 @@ $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['logo']       = array('Logo', '
  */
 $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['general_legend'] = 'Allgemein';
 $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['image_legend']   = 'Bilder';
-
-/**
- * Options
- */
-$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ratingTypeOptions']['men_mixed'] = 'Herren / Mixed';
-$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ratingTypeOptions']['women']     = 'Damen';
 
 /**
  * Buttons

@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2011 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,26 +21,26 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
- * @package    RscTriathlonLeagueManager
+ * @package    TriathlonLeagueManager
  * @license    LGPL
  */
 
 /**
- * Class ModuleRscTriathlonLeagueManagerTableManual
+ * Class ModuleTriathlonLeagueManagerTable
  *
- * Front end module "rscTriathlonLeagueManagerTableManual".
- * @copyright  Cliff Parnitzky 2013
+ * Front end module "triathlonLeagueManagerTable".
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class ModuleRscTriathlonLeagueManagerTableManual extends Module {
+class ModuleTriathlonLeagueManagerTable extends Module {
 	/**
 	 * Template
 	 * @var string
 	 */
-	protected $strTemplate = 'mod_rscTriathlonLeagueManagerTableManual';
+	protected $strTemplate = 'mod_triathlonLeagueManagerTable';
 
 	/**
 	 * Redirect to the selected page
@@ -50,7 +50,7 @@ class ModuleRscTriathlonLeagueManagerTableManual extends Module {
 		if (TL_MODE == 'BE') {
 			$objTemplate = new BackendTemplate('be_wildcard');
 
-			$objTemplate->wildcard = '### RSC TRIATHLON LEAGUE MANAGER TABLE MANUAL ###';
+			$objTemplate->wildcard = '### TRIATHLON LEAGUE MANAGER TABLE ###';
 			$objTemplate->title = $this->headline;
 			$objTemplate->id = $this->id;
 			$objTemplate->link = $this->name;
@@ -66,7 +66,7 @@ class ModuleRscTriathlonLeagueManagerTableManual extends Module {
 	 * Generate module
 	 */
 	protected function compile() {
-		if ($this->triathlonLeagueTableTemplate != 'mod_rscTriathlonLeagueManagerTableManual')
+		if ($this->triathlonLeagueTableTemplate != 'mod_triathlonLeagueManagerTable')
 		{
 			$this->strTemplate = $this->triathlonLeagueTableTemplate;
 
@@ -74,21 +74,35 @@ class ModuleRscTriathlonLeagueManagerTableManual extends Module {
 			$this->Template->setData($this->arrData);
 		} 
 		
-		$this->Template->table = deserialize($this->triathlonLeagueTable);
-		$this->Template->teams = $this->getTeams();
+		$objLeagueTable = $this->Database->prepare('SELECT * FROM tl_triathlon_league_tables WHERE id = ?')->execute($this->triathlonLeagueTable);
 		
-		$arrRaceCount = deserialize($this->triathlonLeagueRaceCount);
-		$this->Template->tfoot = sprintf($GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['tfoot'], date('d.m.Y', $this->triathlonLeagueUpdateDate), $arrRaceCount[0], $arrRaceCount[1]);
+		if ($objLeagueTable->next())
+		{
+			$this->Template->tableData = deserialize($objLeagueTable->tableData);
+			$this->Template->teams = $this->getTeams($objLeagueTable->ratingType);
+			$this->Template->ratingType = $objLeagueTable->columnType;
+			$this->Template->ratingTypeText = $GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType'][$objLeagueTable->columnType];
+			$this->Template->columnType = $objLeagueTable->columnType;
+			$this->Template->columnTypeText = $GLOBALS['TL_LANG']['TriathlonLeagueManager']['columnType'][$objLeagueTable->columnType];
+
+			$strUpdateDate = date($GLOBALS['TL_CONFIG']['dateFormat'], $objLeagueTable->updateDate);
+			$arrRaceCount = deserialize($objLeagueTable->raceCount);
+
+			$this->Template->updateDate = $strUpdateDate;
+			$this->Template->raceCount = $arrRaceCount;
+			
+			$this->Template->tfoot = sprintf($GLOBALS['TL_LANG']['TriathlonLeagueManager']['tfoot'], $strUpdateDate, $arrRaceCount[0], $arrRaceCount[1]);
+		}
 	}
 	
 		/**
 	 * Get all calendars and return them as array
 	 * @return array
 	 */
-	public function getTeams()
+	public function getTeams($ratingType)
 	{
 		$arrTeams = array();
-		$objTeams = $this->Database->prepare("SELECT * FROM tl_triathlon_league_teams WHERE ratingType = ?")->execute($this->triathlonLeagueRatingType);
+		$objTeams = $this->Database->prepare("SELECT * FROM tl_triathlon_league_teams WHERE ratingType = ?")->execute($ratingType);
 
 		while ($objTeams->next())
 		{

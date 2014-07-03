@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,20 +21,28 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
- * @package    RscTriathlonLeagueManager
+ * @package    TriathlonLeagueManager
  * @license    LGPL
  */
 
 /**
- * Define tabel parts
+ * Define name and tooltip for preferences (inactive modules)
  */
-$GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['place']         = "Platz";
-$GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['team']          = "Team";
-$GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['scoringPoints'] = "Wertungspunkte";
-$GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['placeNumber']   = "Platzziffer";
-$GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['thead']['points']        = "Punkte";
-$GLOBALS['TL_LANG']['RscTriathlonLeagueManager']['tfoot']                  = "Stand %s nach %s von %s Rennen";
+$GLOBALS['TL_LANG']['MOD']['TriathlonLeagueManager'] = "Triathlon Liga Manager";
+
+/**
+ * Define name for backend module
+ */
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueManager'] = "Triathlon Liga Manager";
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTeams']      = array("Teams", "Verwaltung der Teams");
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTables']     = array("Tabellen", "Verwaltung der Tabellen");
+
+/**
+ * Define name and tooltip frontend modules
+ */
+$GLOBALS['TL_LANG']['FMD']['triathlonLeagueManager']      = "Triathlon Liga Manager";
+$GLOBALS['TL_LANG']['FMD']['triathlonLeagueManagerTable'] = array('Triathlon Liga Tabelle', 'Stellt ein Modul zur Verfügung, dass eine erfasste Triathlon Liga Tabelle ausgibt.');
 
 ?>

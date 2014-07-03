@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2013 Leo Feyer
+ * Copyright (C) 2005-2014 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,9 +21,9 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
- * @package    RscTriathlonLeagueManager
+ * @package    TriathlonLeagueManager
  * @license    LGPL
  */
 
@@ -53,6 +53,7 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_teams'] = array
 		(
 			'fields'                => array('name', 'ratingType'),
 			'format'                => '%s <span style="color:#b3b3b3; padding-left:3px;">%s</span>',
+			'label_callback'        => array('tl_triathlon_league_teams', 'addIcon')
 		),
 		'global_operations' => array
 		(
@@ -123,7 +124,7 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_teams'] = array
 			'search'                => true,
 			'inputType'             => 'select',
 			'options'               => array('men_mixed', 'women'),
-			'reference'             => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ratingTypeOptions'],
+			'reference'             => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType'],
 			'eval'                  => array('mandatory'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50')
 		),
 		'website' => array
@@ -158,12 +159,22 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_teams'] = array
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  * PHP version 5
- * @copyright  Cliff Parnitzky 2011
+ * @copyright  Cliff Parnitzky 2013-2014
  * @author     Cliff Parnitzky
  * @package    Controller
  */
 class tl_triathlon_league_teams extends Backend
 {
+	/**
+	 * Add an image to each record
+	 * @param array
+	 * @param string
+	 * @return string
+	 */
+	public function addIcon($row, $label)
+	{
+		return $this->generateImage($row['logo'], '', '') . ' ' . $label;
+	}
 
 } 
 

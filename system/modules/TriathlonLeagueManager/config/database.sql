@@ -8,7 +8,7 @@
 -- ********************************************************
 
 -- 
--- Table `tl_triathlon_league_team`
+-- Table `tl_triathlon_league_teams`
 -- 
 
 CREATE TABLE `tl_triathlon_league_teams` (
@@ -23,16 +23,29 @@ CREATE TABLE `tl_triathlon_league_teams` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8; 
 
 -- 
+-- Table `tl_triathlon_league_tables`
+-- 
+
+CREATE TABLE `tl_triathlon_league_tables` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `tstamp` int(10) unsigned NOT NULL default '0',
+  `title` varchar(512) NOT NULL default '',
+  `league` varchar(64) NOT NULL default '',
+  `ratingType` varchar(255) NOT NULL default '',
+  `columnType` varchar(255) NOT NULL default '',
+  `tableData` blob NULL,
+  `autoSortTable` char(1) NOT NULL default '',
+  `updateDate` varchar(255) NOT NULL default '',
+  `raceCount` varchar(255) NOT NULL default ''
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8; 
+
+-- 
 -- Table `tl_module`
 -- 
 
 CREATE TABLE `tl_module` (
-  `triathlonLeagueRatingType` varchar(255) NOT NULL default '',
-  `triathlonLeagueColumns` varchar(255) NOT NULL default '',
-  `triathlonLeagueTable` blob NULL,
-  `triathlonLeagueAutoSortTable` char(1) NOT NULL default '',
-  `triathlonLeagueUpdateDate` varchar(255) NOT NULL default '',
-  `triathlonLeagueRaceCount` varchar(255) NOT NULL default '',
+  `triathlonLeagueTable` int(10) unsigned NOT NULL default '0',
   `triathlonLeagueTableTemplate` varchar(255) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
  
