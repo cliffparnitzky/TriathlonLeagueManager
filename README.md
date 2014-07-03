@@ -33,8 +33,8 @@ Dependency
 Screenshots
 -----------
 
-![Screenshot Backend Tabellen](https://raw.github.com/cliffparnitzky/RscTriathlonLeagueManager/master/screenshot_backend_tables.jpg)
+![Screenshot Backend Tabellen](https://raw.github.com/cliffparnitzky/TriathlonLeagueManager/master/screenshot_backend_tables.jpg)
 
-![Screenshot Backend Tabellen](https://raw.github.com/cliffparnitzky/RscTriathlonLeagueManager/master/screenshot_backend_teams.jpg)
+![Screenshot Backend Tabellen](https://raw.github.com/cliffparnitzky/TriathlonLeagueManager/master/screenshot_backend_teams.jpg)
 
-![Screenshot Frontend Tabelle](https://raw.github.com/cliffparnitzky/RscTriathlonLeagueManager/master/screenshot_frontend_table.jpg)
+![Screenshot Frontend Tabelle](https://raw.github.com/cliffparnitzky/TriathlonLeagueManager/master/screenshot_frontend_table.jpg)
