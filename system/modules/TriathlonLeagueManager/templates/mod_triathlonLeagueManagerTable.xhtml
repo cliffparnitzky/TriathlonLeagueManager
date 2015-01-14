@@ -26,7 +26,7 @@
 <?php foreach ($this->tableData as $index => $entry): ?>
 			<tr<?php if ($this->teams[$entry['tableTeam']]['ownTeam']): ?> class="ownteam"<?php endif; ?>>
 				<td class="place"><?php echo $entry['tablePlace']; ?>.</td>
-				<td class="team"><?php echo $this->teams[$entry['tableTeam']]['name']; ?><img src="<?php echo $this->teams[$entry['tableTeam']]['logo']; ?>" title="<?php echo $this->teams[$entry['tableTeam']]['name']; ?>" /></td>
+				<td class="team"><?php echo $this->teams[$entry['tableTeam']]['name']; ?> <img src="<?php echo $this->teams[$entry['tableTeam']]['logo']; ?>" title="<?php echo $this->teams[$entry['tableTeam']]['name']; ?>" /></td>
 <?php if ($this->columnType == 'wp_pz'): ?>
 				<td class="points"><?php echo $entry['tableScoringPoints']; ?></td>
 				<td class="points"><?php echo $entry['tablePlaceNumber']; ?></td>

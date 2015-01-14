@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
@@ -35,12 +35,12 @@ $GLOBALS['BE_MOD']['triathlonLeagueManager'] = array
 	'triathlonLeagueTeams' => array
 	(
 		'tables' => array('tl_triathlon_league_teams'),
-		'icon'   => 'system/modules/TriathlonLeagueManager/html/icon_teams.png'
+		'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_teams.png'
 	),
 	'triathlonLeagueTables' => array
 	(
 		'tables' => array('tl_triathlon_league_tables'),
-		'icon'   => 'system/modules/TriathlonLeagueManager/html/icon_tables.png'
+		'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_tables.png'
 	)
 );
 

@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
@@ -31,7 +31,7 @@
  * Class ModuleTriathlonLeagueManagerTable
  *
  * Front end module "triathlonLeagueManagerTable".
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    Controller
  */
@@ -106,7 +106,16 @@ class ModuleTriathlonLeagueManagerTable extends Module {
 
 		while ($objTeams->next())
 		{
-			$arrTeams[$objTeams->id] = array('name' => $objTeams->name, 'ownTeam' => $objTeams->ownTeam, 'website' => $objTeams->website, 'logo' => $objTeams->logo);
+			$logo = "";
+			if ($objTeams->logo != '')
+			{
+				$objFile = FilesModel::findByUuid($objTeams->logo);
+				if ($objFile !== null)
+				{
+					$logo = $objFile->path;
+				}
+			}
+			$arrTeams[$objTeams->id] = array('name' => $objTeams->name, 'ownTeam' => $objTeams->ownTeam, 'website' => $objTeams->website, 'logo' => $logo);
 		}
 	
 		return $arrTeams;

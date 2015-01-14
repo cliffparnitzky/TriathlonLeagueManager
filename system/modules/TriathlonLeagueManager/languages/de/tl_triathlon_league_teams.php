@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
@@ -34,7 +34,7 @@ $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['name']       = array('Name', '
 $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ratingType'] = array('Wertungstyp', 'Wählen Sie den Wertungstyp für dieses Team aus.');
 $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['website']    = array('Webseite', 'Geben Sie die Webseite dieses Teams an.');
 $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ownTeam']    = array('Eigenes Team', 'Geben Sie an, ob es sich bei dem Team um ihr eigenes handelt. Es wird dann z.B. im Frontend besonders hervorgehoben.');
-$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['logo']       = array('Logo', 'Wählen Sie ein Logog für diese Team aus.');
+$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['logo']       = array('Logo', 'Wählen Sie ein Logo für diese Team aus.');
 
 /**
  * Legends

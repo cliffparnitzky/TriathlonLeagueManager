@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
@@ -41,7 +41,8 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTable'] = array
 	'exclude'                 => true,
 	'inputType'               => 'select',
 	'options_callback'        => array('tl_module_TriathlonLeagueManager', 'getLeagueTables'),
-	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true)
+	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true),
+	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTableTemplate'] = array
@@ -51,15 +52,16 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTableTemplate'] = arra
 	'exclude'                 => true,
 	'inputType'               => 'select',
 	'options_callback'        => array('tl_module_TriathlonLeagueManager', 'getLeagueTableTemplates'),
-	'eval'                    => array('tl_class'=>'clr')
+	'eval'                    => array('tl_class'=>'clr'),
+	'sql'                     => "varchar(255) NOT NULL default ''"
 ); 
 
 /**
- * Class tl_triathlon_league_teams
+ * Class tl_module_TriathlonLeagueManager
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  * PHP version 5
- * @copyright  Cliff Parnitzky 2011
+ * @copyright  Cliff Parnitzky 2011-2015
  * @author     Cliff Parnitzky
  * @package    Controller
  */

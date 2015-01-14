@@ -1,8 +1,8 @@
-<?php if (!defined('TL_ROOT')) die('You cannot access this file directly!');
+<?php
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
@@ -37,7 +37,14 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_teams'] = array
 	'config' => array
 	(
 		'dataContainer'           => 'Table',
-		'enableVersioning'        => true
+		'enableVersioning'        => true,
+		'sql' => array
+		(
+			'keys' => array
+			(
+				'id' => 'primary'
+			)
+		)
 	),
 
 	// List
@@ -105,51 +112,64 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_teams'] = array
 	// Fields
 	'fields' => array
 	(
+		'id' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
+		),
+		'tstamp' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+		),
 		'name' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['name'],
-			'exclude'               => true,
-			'filter'                => true,
-			'sorting'               => true,
-			'search'                => true,
-			'inputType'             => 'text',
-			'eval'                  => array('mandatory'=>true, 'tl_class'=>'w50')
+			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['name'],
+			'exclude'                 => true,
+			'filter'                  => true,
+			'sorting'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'ratingType' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ratingType'],
-			'exclude'               => true,
-			'filter'                => true,
-			'sorting'               => true,
-			'search'                => true,
-			'inputType'             => 'select',
-			'options'               => array('men_mixed', 'women'),
-			'reference'             => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType'],
-			'eval'                  => array('mandatory'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50')
+			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ratingType'],
+			'exclude'                 => true,
+			'filter'                  => true,
+			'sorting'                 => true,
+			'search'                  => true,
+			'inputType'               => 'select',
+			'options'                 => array('men_mixed', 'women'),
+			'reference'               => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType'],
+			'eval'                    => array('mandatory'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'website' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['website'],
-			'exclude'               => true,
-			'search'                => true,
-			'inputType'             => 'text',
-			'eval'                  => array('tl_class'=>'clr w50', 'rgxp'=>'url')
+			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['website'],
+			'exclude'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('tl_class'=>'clr w50', 'rgxp'=>'url'),
+			'sql'                     => "varchar(512) NOT NULL default ''"
 		),
 		'ownTeam' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ownTeam'],
-			'exclude'               => true,
-			'filter'                => true,
-			'search'                => true,
-			'inputType'             => 'checkbox',
-			'eval'                  => array('tl_class'=>'m12 w50')
+			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['ownTeam'],
+			'exclude'                 => true,
+			'filter'                  => true,
+			'search'                  => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class'=>'m12 w50'),
+			'sql'                     => "char(1) NOT NULL default ''"
 		),
 		'logo' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['logo'],
-			'exclude'               => true,
-			'inputType'             => 'fileTree',
-			'eval'                  => array('mandatory'=>true, 'fieldType'=>'radio', 'files'=>true, 'filesOnly'=>true, 'extensions'=>'png', 'tl_class'=>'clr')
+			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['logo'],
+			'exclude'                 => true,
+			'inputType'               => 'fileTree',
+			'eval'                    => array('mandatory'=>true, 'fieldType'=>'radio', 'files'=>true, 'filesOnly'=>true, 'extensions'=>'png', 'tl_class'=>'clr'),
+			'sql'                     => "binary(16) NULL"
 		)
 	)
 );
@@ -159,7 +179,7 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_teams'] = array
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    Controller
  */
@@ -173,7 +193,17 @@ class tl_triathlon_league_teams extends Backend
 	 */
 	public function addIcon($row, $label)
 	{
-		return $this->generateImage($row['logo'], '', '') . ' ' . $label;
+		if ($row['logo'] != '')
+		{
+			$objFile = FilesModel::findByUuid($row['logo']);
+
+			if ($objFile !== null)
+			{
+				$label = Image::getHTML($objFile->path) . " " . $label;
+			}
+		}
+		
+		return $label;
 	}
 
 } 

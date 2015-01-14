@@ -1,14 +1,21 @@
+[![Latest Version on Packagist](http://img.shields.io/packagist/v/cliffparnitzky/triathlon-league-manager.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/triathlon-league-manager)
+[![Installations via composer per month](http://img.shields.io/packagist/dm/cliffparnitzky/triathlon-league-manager.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/triathlon-league-manager)
+[![Installations via composer total](http://img.shields.io/packagist/dt/cliffparnitzky/triathlon-league-manager.svg?style=flat)](https://packagist.org/packages/cliffparnitzky/triathlon-league-manager)
+
 Contao Extension: TriathlonLeagueManager
 ========================================
 
-Dient der Verwaltung von Triathlon Liga Ergebnissen und Tabellen
+Managing triathlon league tables and teams for displaying it in frontend.
 
 
 Installation
 ------------
 
 The extension is not published in contao extension repository.
-Install it manually.
+
+Install it via composer: [cliffparnitzky/triathlon-league-manager](https://packagist.org/packages/cliffparnitzky/triathlon-league-manager).
+
+If you prefer to install it manually, download the latest release here: https://github.com/cliffparnitzky/TriathlonLeagueManager/releases
 
 
 Tracker
@@ -20,14 +27,14 @@ https://github.com/cliffparnitzky/TriathlonLeagueManager/issues
 Compatibility
 -------------
 
-- min. version: Contao 2.9.5
-- max. version: Contao 2.11.x
+- min. version: Contao 3.2.0
+- max. version: Contao 3.4.x
 
 
 Dependency
 ----------
 
-- This extension is dependent on the following extensions: [[MultiColumnWizard]](http://contao.org/de/extension-list/view/MultiColumnWizard.de.html)
+- This extension is dependent on the following extensions: [[menatwork/contao-multicolumnwizard]](https://packagist.org/packages/menatwork/contao-multicolumnwizard)
 
 
 Screenshots

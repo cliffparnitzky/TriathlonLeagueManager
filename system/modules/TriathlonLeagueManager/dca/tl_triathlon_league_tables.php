@@ -2,7 +2,7 @@
 
 /**
  * Contao Open Source CMS
- * Copyright (C) 2005-2014 Leo Feyer
+ * Copyright (C) 2005-2015 Leo Feyer
  *
  * Formerly known as TYPOlight Open Source CMS.
  *
@@ -21,7 +21,7 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2014
+ * @copyright  Cliff Parnitzky 2013-2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
@@ -38,6 +38,13 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
 	(
 		'dataContainer'           => 'Table',
 		'enableVersioning'        => true,
+		'sql' => array
+		(
+			'keys' => array
+			(
+				'id' => 'primary'
+			)
+		),
 		'onsubmit_callback' => array
 		(
 			array('tl_triathlon_league_tables', 'storeLeagueTable')
@@ -117,27 +124,37 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
 	// Fields
 	'fields' => array
 	(
+		'id' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL auto_increment"
+		),
+		'tstamp' => array
+		(
+			'sql'                     => "int(10) unsigned NOT NULL default '0'"
+		),
 		'title' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['title'],
-			'exclude'               => true,
-			'filter'                => true,
-			'sorting'               => true,
-			'search'                => true,
-			'inputType'             => 'text',
-			'eval'                  => array('mandatory'=>true, 'tl_class'=>'w50')
+			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['title'],
+			'exclude'                 => true,
+			'filter'                  => true,
+			'sorting'                 => true,
+			'search'                  => true,
+			'inputType'               => 'text',
+			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(512) NOT NULL default ''"
 		),
 		'league' => array
 		(
-			'label'                 => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['league'],
-			'exclude'               => true,
-			'filter'                => true,
-			'sorting'               => true,
-			'search'                => true,
-			'inputType'             => 'select',
-			'options'               => array('1_bundesliga', '2_bundesliga', '3_regionalliga', '4_landesliga'),
-			'reference'             => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['league'],
-			'eval'                  => array('mandatory'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50')
+			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['league'],
+			'exclude'                 => true,
+			'filter'                  => true,
+			'sorting'                 => true,
+			'search'                  => true,
+			'inputType'               => 'select',
+			'options'                 => array('1_bundesliga', '2_bundesliga', '3_regionalliga', '4_landesliga'),
+			'reference'               => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['league'],
+			'eval'                    => array('mandatory'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(64) NOT NULL default ''"
 		),
 		'ratingType' => array
 		(
@@ -147,7 +164,8 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
 			'options'                 => array('men_mixed', 'women'),
 			'reference'               => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType'],
 			'load_callback'           => array(array('tl_triathlon_league_tables', 'setSelectedRatingType')),
-			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true, 'submitOnChange'=>true)
+			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true, 'submitOnChange'=>true),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'columnType' => array
 		(
@@ -157,7 +175,8 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
 			'options'                 => array('pkt', 'wp_pz'),
 			'reference'               => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['columnType'],
 			'load_callback'           => array(array('tl_triathlon_league_tables', 'setSelectedColumnType')),
-			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true, 'submitOnChange'=>true)
+			'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true, 'submitOnChange'=>true),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'tableData' => array
 		(
@@ -170,28 +189,32 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
 				'tl_class'            => 'clr',
 				'minCount'            => 1,
 				'columnsCallback'     =>array('tl_triathlon_league_tables', 'getLeagueTableColumns')
-			)
+			),
+			'sql'                     => "blob NULL"
 		),
 		'autoSortTable' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['autoSortTable'],
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'clr m12 w50', 'submitOnChange'=>true)
+			'eval'                    => array('tl_class'=>'clr m12 w50', 'submitOnChange'=>true),
+			'sql'                     => "char(1) NOT NULL default ''"
 		),
 		'updateDate' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['updateDate'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true, 'rgxp'=>'date', 'datepicker'=>$this->getDatePickerString(), 'tl_class'=>'clr w50 wizard')
+			'eval'                    => array('mandatory'=>true, 'rgxp'=>'date', 'datepicker'=>$this->getDatePickerString(), 'tl_class'=>'clr w50 wizard'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'raceCount' => array
 		(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['raceCount'],
 			'exclude'                 => true,
 			'inputType'               => 'text',
-			'eval'                    => array('mandatory'=>true, 'rgxp'=>'digit', 'multiple'=>true, 'size'=>2, 'tl_class'=>'w50')
+			'eval'                    => array('mandatory'=>true, 'rgxp'=>'digit', 'multiple'=>true, 'size'=>2, 'tl_class'=>'w50'),
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		)
 	)
 );
@@ -201,7 +224,7 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  * PHP version 5
- * @copyright  Cliff Parnitzky 2014
+ * @copyright  Cliff Parnitzky 2015
  * @author     Cliff Parnitzky
  * @package    Controller
  */
@@ -286,7 +309,7 @@ class tl_triathlon_league_tables extends Backend
 			'exclude'          => true,
 			'inputType'        => 'select',
 			'options_callback' => array('tl_triathlon_league_tables', 'getTeams'),
-			'eval'             => array('style'=>'width: 95%;', 'includeBlankOption'=>true, 'mandatory'=>true, 'submitOnChange'=>true)
+			'eval'             => array('style'=>'width: 300px;', 'includeBlankOption'=>true, 'mandatory'=>true, 'submitOnChange'=>true)
 		);
 		
 		if (tl_triathlon_league_tables::$selectedColumnType == 'wp_pz')
@@ -296,7 +319,7 @@ class tl_triathlon_league_tables extends Backend
 				'label'            => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['tableScoringPoints'],
 				'exclude'          => true,
 				'inputType'        => 'text',
-				'eval'             => array('style'=>'width: 95%;', 'mandatory'=>true, 'rgxp'=>'digit')
+				'eval'             => array('style'=>'width: 150px;', 'mandatory'=>true, 'rgxp'=>'digit')
 			);
 			
 			$arrColumns['tablePlaceNumber'] = array
@@ -304,7 +327,7 @@ class tl_triathlon_league_tables extends Backend
 				'label'            => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['tablePlaceNumber'],
 				'exclude'          => true,
 				'inputType'        => 'text',
-				'eval'             => array('style'=>'width: 95%;', 'mandatory'=>true, 'rgxp'=>'digit')
+				'eval'             => array('style'=>'width: 150px;', 'mandatory'=>true, 'rgxp'=>'digit')
 			);
 		}
 		else if (tl_triathlon_league_tables::$selectedColumnType == 'pkt')
@@ -314,7 +337,7 @@ class tl_triathlon_league_tables extends Backend
 				'label'            => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['tablePoints'],
 				'exclude'          => true,
 				'inputType'        => 'text',
-				'eval'             => array('style'=>'width: 95%;', 'mandatory'=>true, 'rgxp'=>'digit')
+				'eval'             => array('style'=>'width: 300px;', 'mandatory'=>true, 'rgxp'=>'digit')
 			);
 		}
 		
