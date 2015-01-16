@@ -75,7 +75,7 @@ class ModuleTriathlonLeagueManagerTable extends \Module {
 		{
 			$this->strTemplate = $this->triathlonLeagueTableTemplate;
 
-			$this->Template = new FrontendTemplate($this->strTemplate);
+			$this->Template = new \FrontendTemplate($this->strTemplate);
 			$this->Template->setData($this->arrData);
 		}
 		
