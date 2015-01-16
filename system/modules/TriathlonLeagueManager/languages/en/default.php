@@ -30,12 +30,12 @@
 /**
  * Table columns
  */
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['place']         = "Platz";
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['place']         = "Place";
 $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['team']          = "Team";
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['scoringPoints'] = "Wertungspunkte";
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['placeNumber']   = "Platzziffer";
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['points']        = "Punkte";
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['tfoot']                  = "Stand %s nach %s von %s Rennen";
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['scoringPoints'] = "Scoring points";
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['placeNumber']   = "Place number";
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['points']        = "Points";
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['tfoot']                  = "Last updated %s by %s of %s races";
 
 /**
  * Leagues
@@ -48,13 +48,13 @@ $GLOBALS['TL_LANG']['TriathlonLeagueManager']['league']['4_landesliga']   = "Lan
 /**
  * Rating types
  */
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType']['men_mixed'] = 'Herren / Mixed';
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType']['women']     = 'Damen';
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType']['men_mixed'] = 'Men / Mixed';
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['ratingType']['women']     = 'Women';
 
 /**
  * Column types
  */
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['columnType']['pkt']   = 'Punkte';
-$GLOBALS['TL_LANG']['TriathlonLeagueManager']['columnType']['wp_pz'] = 'Wertungspunkte + Platzziffer';
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['columnType']['pkt']   = 'Points';
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['columnType']['wp_pz'] = 'Scoring points + place number';
 
 ?>

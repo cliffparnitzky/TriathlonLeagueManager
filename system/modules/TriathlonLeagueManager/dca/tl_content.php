@@ -28,16 +28,16 @@
  */
 
 /**
- * Add palettes to tl_module
+ * Add palettes to tl_content
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['triathlonLeagueManagerTable'] = '{title_legend},name,headline,type;{triathlonLeagueTable_legend},triathlonLeagueTable;{template_legend:hide},triathlonLeagueTableTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['triathlonLeagueManagerTable'] = '{title_legend},type,headline;{triathlonLeagueTable_legend},triathlonLeagueTable;{template_legend:hide},triathlonLeagueTableTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 /**
- * Add fields to tl_module
+ * Add fields to tl_content
  */
-$GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTable'] = array
+$GLOBALS['TL_DCA']['tl_content']['fields']['triathlonLeagueTable'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTable'],
+	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['triathlonLeagueTable'],
 	'exclude'                 => true,
 	'inputType'               => 'select',
 	'options'                 => TriathlonLeagueManagerHelper::getTablesForBackend(),
@@ -45,19 +45,19 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTable'] = array
 	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTableTemplate'] = array
+$GLOBALS['TL_DCA']['tl_content']['fields']['triathlonLeagueTableTemplate'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableTemplate'],
+	'label'                   => &$GLOBALS['TL_LANG']['tl_content']['triathlonLeagueTableTemplate'],
 	'default'                 => 'pl_ce_list_default',
 	'exclude'                 => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('tl_module_TriathlonLeagueManager', 'getLeagueTableTemplates'),
+	'options_callback'        => array('tl_content_TriathlonLeagueManager', 'getLeagueTableTemplates'),
 	'eval'                    => array('tl_class'=>'clr'),
 	'sql'                     => "varchar(255) NOT NULL default ''"
 ); 
 
 /**
- * Class tl_module_TriathlonLeagueManager
+ * Class tl_content_TriathlonLeagueManager
  *
  * Provide miscellaneous methods that are used by the data configuration array.
  * PHP version 5
@@ -65,7 +65,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTableTemplate'] = arra
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class tl_module_TriathlonLeagueManager extends tl_module
+class tl_content_TriathlonLeagueManager extends tl_content
 {
 	/**
 	 * Import the back end user object
@@ -89,7 +89,7 @@ class tl_module_TriathlonLeagueManager extends tl_module
 			$intPid = $this->Input->get('id');
 		}
 
-		return $this->getTemplateGroup('mod_triathlonLeagueManagerTable', $intPid);
+		return $this->getTemplateGroup('ce_triathlonLeagueManagerTable', $intPid);
 	}  
 }
 

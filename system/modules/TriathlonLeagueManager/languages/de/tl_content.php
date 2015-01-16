@@ -28,33 +28,14 @@
  */
 
 /**
- * Backend modules
+ * Fields
  */
-array_insert($GLOBALS['BE_MOD'], array_search("system", array_keys($GLOBALS['BE_MOD'])), array
-(
-	'triathlonLeagueManager' => array
-	(
-		'triathlonLeagueTeams' => array
-		(
-			'tables' => array('tl_triathlon_league_teams'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_teams.png'
-		),
-		'triathlonLeagueTables' => array
-		(
-			'tables' => array('tl_triathlon_league_tables'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_tables.png'
-		)
-	)
-)); 
+$GLOBALS['TL_LANG']['tl_content']['triathlonLeagueTable']         = array('Tabelle', 'Wählen Sie die Triathlon Liga Tabelle aus.');
+$GLOBALS['TL_LANG']['tl_content']['triathlonLeagueTableTemplate'] = array('Triathlon Liga Tabelle Template', 'Wählen Sie ein Template zur Ausgabe der Triathlon Liga Tabelle aus.');
 
 /**
- * Front end module
+ * Options
  */
-$GLOBALS['FE_MOD']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ModuleTriathlonLeagueManagerTable';
-
-/**
- * Add content element
- */
-$GLOBALS['TL_CTE']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ContentTriathlonLeagueManagerTable'; 
+$GLOBALS['TL_LANG']['tl_content']['triathlonLeagueTable_legend'] = 'Triathlon Liga Tabelle';
 
 ?>

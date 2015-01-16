@@ -10,12 +10,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this program. If not, please visit the Free
  * Software Foundation website at <http://www.gnu.org/licenses/>.
@@ -36,13 +36,19 @@ $GLOBALS['TL_LANG']['MOD']['TriathlonLeagueManager'] = "Triathlon Liga Manager";
  * Define name for backend module
  */
 $GLOBALS['TL_LANG']['MOD']['triathlonLeagueManager'] = "Triathlon Liga Manager";
-$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTeams']      = array("Teams", "Verwaltung der Teams");
-$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTables']     = array("Tabellen", "Verwaltung der Tabellen");
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTeams']   = array("Teams", "Verwaltung der Teams");
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTables']  = array("Tabellen", "Verwaltung der Tabellen");
 
 /**
- * Define name and tooltip frontend modules
+ * Define name and tooltip for content elements
  */
 $GLOBALS['TL_LANG']['FMD']['triathlonLeagueManager']      = "Triathlon Liga Manager";
-$GLOBALS['TL_LANG']['FMD']['triathlonLeagueManagerTable'] = array('Triathlon Liga Tabelle', 'Stellt ein Modul zur Verfügung, dass eine erfasste Triathlon Liga Tabelle ausgibt.');
+$GLOBALS['TL_LANG']['FMD']['triathlonLeagueManagerTable'] = array('Triathlon Liga Tabelle', 'Gibt eine erfasste Triathlon Liga Tabelle aus.');
+
+/**
+ * Define name and tooltip for content elements
+ */
+$GLOBALS['TL_LANG']['CTE']['triathlonLeagueManager']      = "Triathlon Liga Manager";
+$GLOBALS['TL_LANG']['CTE']['triathlonLeagueManagerTable'] = array('Triathlon Liga Tabelle', 'Gibt eine erfasste Triathlon Liga Tabelle aus.');
 
 ?>

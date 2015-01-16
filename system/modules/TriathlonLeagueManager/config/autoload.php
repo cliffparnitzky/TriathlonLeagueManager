@@ -12,11 +12,31 @@
 
 
 /**
+ * Register the namespaces
+ */
+ClassLoader::addNamespaces(array
+(
+	'TriathlonLeagueManager',
+));
+
+
+/**
  * Register the classes
  */
 ClassLoader::addClasses(array
 (
-	'ModuleTriathlonLeagueManagerTable' => 'system/modules/TriathlonLeagueManager/ModuleTriathlonLeagueManagerTable.php',
+	// Classes
+	'TriathlonLeagueManager\TriathlonLeagueManagerHelper'       => 'system/modules/TriathlonLeagueManager/classes/TriathlonLeagueManagerHelper.php',
+
+	// Elements
+	'TriathlonLeagueManager\ContentTriathlonLeagueManagerTable' => 'system/modules/TriathlonLeagueManager/elements/ContentTriathlonLeagueManagerTable.php',
+
+	// Models
+	'TriathlonLeagueManager\TriathlonLeagueTablesModel'         => 'system/modules/TriathlonLeagueManager/models/TriathlonLeagueTablesModel.php',
+	'TriathlonLeagueManager\TriathlonLeagueTeamsModel'          => 'system/modules/TriathlonLeagueManager/models/TriathlonLeagueTeamsModel.php',
+
+	// Modules
+	'TriathlonLeagueManager\ModuleTriathlonLeagueManagerTable'  => 'system/modules/TriathlonLeagueManager/modules/ModuleTriathlonLeagueManagerTable.php',
 ));
 
 
@@ -25,5 +45,6 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'mod_triathlonLeagueManagerTable' => 'system/modules/TriathlonLeagueManager/templates',
+	'ce_triathlonLeagueManagerTable'  => 'system/modules/TriathlonLeagueManager/templates/elements',
+	'mod_triathlonLeagueManagerTable' => 'system/modules/TriathlonLeagueManager/templates/modules',
 ));

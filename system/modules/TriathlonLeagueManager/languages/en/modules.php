@@ -28,33 +28,27 @@
  */
 
 /**
- * Backend modules
+ * Define name and tooltip for preferences (inactive modules)
  */
-array_insert($GLOBALS['BE_MOD'], array_search("system", array_keys($GLOBALS['BE_MOD'])), array
-(
-	'triathlonLeagueManager' => array
-	(
-		'triathlonLeagueTeams' => array
-		(
-			'tables' => array('tl_triathlon_league_teams'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_teams.png'
-		),
-		'triathlonLeagueTables' => array
-		(
-			'tables' => array('tl_triathlon_league_tables'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_tables.png'
-		)
-	)
-)); 
+$GLOBALS['TL_LANG']['MOD']['TriathlonLeagueManager'] = "Triathlon league manager";
 
 /**
- * Front end module
+ * Define name for backend module
  */
-$GLOBALS['FE_MOD']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ModuleTriathlonLeagueManagerTable';
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueManager'] = "Triathlon league manager";
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTeams']   = array("Teams", "Management of teams");
+$GLOBALS['TL_LANG']['MOD']['triathlonLeagueTables']  = array("Tables", "Management of tables");
 
 /**
- * Add content element
+ * Define name and tooltip frontend modules
  */
-$GLOBALS['TL_CTE']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ContentTriathlonLeagueManagerTable'; 
+$GLOBALS['TL_LANG']['FMD']['triathlonLeagueManager']      = "Triathlon league manager";
+$GLOBALS['TL_LANG']['FMD']['triathlonLeagueManagerTable'] = array('Triathlon league table', 'Returns a recorded triathlon league table.');
+
+/**
+ * Define name and tooltip for content elements
+ */
+$GLOBALS['TL_LANG']['CTE']['triathlonLeagueManager']      = "Triathlon league manager";
+$GLOBALS['TL_LANG']['CTE']['triathlonLeagueManagerTable'] = array('Triathlon league table', 'Returns a recorded triathlon league table.');
 
 ?>

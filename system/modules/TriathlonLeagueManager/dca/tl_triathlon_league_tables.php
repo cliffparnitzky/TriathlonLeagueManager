@@ -10,12 +10,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this program. If not, please visit the Free
  * Software Foundation website at <http://www.gnu.org/licenses/>.
@@ -48,7 +48,7 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
 		'onsubmit_callback' => array
 		(
 			array('tl_triathlon_league_tables', 'storeLeagueTable')
-		) 
+		)
 	),
 
 	// List
@@ -267,7 +267,7 @@ class tl_triathlon_league_tables extends Backend
 	 * Get all calendars and return them as array
 	 * @return array
 	 */
-	public function getTeams(MultiColumnWizard $mcw)
+	public function getUnusedTeams(MultiColumnWizard $mcw)
 	{
 		$selectedTeams = array();
 		foreach ($mcw->value as $option) {
@@ -275,13 +275,16 @@ class tl_triathlon_league_tables extends Backend
 		}
 		
 		$arrTeams = array();
-		$objTeams = $this->Database->prepare("SELECT id, name FROM tl_triathlon_league_teams WHERE ratingType = ? ORDER BY name")->execute(tl_triathlon_league_tables::$selectedRatingType);
+		$objTeams = \TriathlonLeagueTeamsModel::findByRatingType(tl_triathlon_league_tables::$selectedRatingType, array('order'=>'name'));
 
-		while ($objTeams->next())
+		if ($objTeams != null)
 		{
-			if ($objTeams->id == $selectedTeams[$mcw->activeRow] || !in_array($objTeams->id, $selectedTeams))
+			while ($objTeams->next())
 			{
-				$arrTeams[$objTeams->id] = $objTeams->name;
+				if ($objTeams->id == $selectedTeams[$mcw->activeRow] || !in_array($objTeams->id, $selectedTeams))
+				{
+					$arrTeams[$objTeams->id] = $objTeams->name;
+				}
 			}
 		}
 	
@@ -308,7 +311,7 @@ class tl_triathlon_league_tables extends Backend
 			'label'            => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['tableTeam'],
 			'exclude'          => true,
 			'inputType'        => 'select',
-			'options_callback' => array('tl_triathlon_league_tables', 'getTeams'),
+			'options_callback' => array('tl_triathlon_league_tables', 'getUnusedTeams'),
 			'eval'             => array('style'=>'width: 300px;', 'includeBlankOption'=>true, 'mandatory'=>true, 'submitOnChange'=>true)
 		);
 		
@@ -364,7 +367,7 @@ class tl_triathlon_league_tables extends Backend
 	}
 	
 	/**
-	 * SAVE CALLBACK to sort the table when saving.
+	 * ONSUBMIT CALLBACK to sort the table when saving.
 	 */
 	public function storeLeagueTable(DataContainer $dc)
 	{
@@ -401,9 +404,8 @@ class tl_triathlon_league_tables extends Backend
 			$arrLeagueTable[$index]['tablePlace'] = ($index + 1);
 		}
 		
-		$this->Database->prepare("UPDATE tl_triathlon_league_tables SET tableData = ? WHERE id = ?")
-					   ->execute(serialize($arrLeagueTable), $dc->id); 
+		$this->Database->prepare("UPDATE tl_triathlon_league_tables %s WHERE id=?")->set(array('tableData'=>serialize($arrLeagueTable)))->execute($dc->id);
 	}
-} 
+}
 
 ?>

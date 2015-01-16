@@ -21,40 +21,45 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2015
+ * @copyright  Cliff Parnitzky 2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
  */
 
 /**
- * Backend modules
+ * Run in a custom namespace, so the class can be replaced
  */
-array_insert($GLOBALS['BE_MOD'], array_search("system", array_keys($GLOBALS['BE_MOD'])), array
-(
-	'triathlonLeagueManager' => array
-	(
-		'triathlonLeagueTeams' => array
-		(
-			'tables' => array('tl_triathlon_league_teams'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_teams.png'
-		),
-		'triathlonLeagueTables' => array
-		(
-			'tables' => array('tl_triathlon_league_tables'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_tables.png'
-		)
-	)
-)); 
+namespace TriathlonLeagueManager;
 
 /**
- * Front end module
+ * Class TriathlonLeagueTeamsModel
+ *
+ * @copyright  Cliff Parnitzky 2015
+ * @author     Cliff Parnitzky
+ * @package    Models
  */
-$GLOBALS['FE_MOD']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ModuleTriathlonLeagueManagerTable';
+class TriathlonLeagueTeamsModel extends \Model
+{
 
-/**
- * Add content element
- */
-$GLOBALS['TL_CTE']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ContentTriathlonLeagueManagerTable'; 
+	/**
+	 * Table name
+	 * @var string
+	 */
+	protected static $strTable = 'tl_triathlon_league_teams';
 
-?>
+		/**
+	 * Find teams which have the same given rating type
+	 *
+	 * @param integer $strRatingType The rating type
+	 * @param array   $arrOptions    An optional options array
+	 *
+	 * @return \Model\Collection|null A collection of models or null if no team where found for this given rating type
+	 */
+	public static function findByRatingType($strRatingType, array $arrOptions=array())
+	{
+		$t = static::$strTable;
+		return static::findBy(array("$t.ratingType = ?"), array($strRatingType), $arrOptions);
+	}
+
+}

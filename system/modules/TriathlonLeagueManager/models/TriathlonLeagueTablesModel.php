@@ -21,40 +21,31 @@
  * Software Foundation website at <http://www.gnu.org/licenses/>.
  *
  * PHP version 5
- * @copyright  Cliff Parnitzky 2013-2015
+ * @copyright  Cliff Parnitzky 2015
  * @author     Cliff Parnitzky
  * @package    TriathlonLeagueManager
  * @license    LGPL
  */
 
 /**
- * Backend modules
+ * Run in a custom namespace, so the class can be replaced
  */
-array_insert($GLOBALS['BE_MOD'], array_search("system", array_keys($GLOBALS['BE_MOD'])), array
-(
-	'triathlonLeagueManager' => array
-	(
-		'triathlonLeagueTeams' => array
-		(
-			'tables' => array('tl_triathlon_league_teams'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_teams.png'
-		),
-		'triathlonLeagueTables' => array
-		(
-			'tables' => array('tl_triathlon_league_tables'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_tables.png'
-		)
-	)
-)); 
+namespace TriathlonLeagueManager;
 
 /**
- * Front end module
+ * Class TriathlonLeagueTablesModel
+ *
+ * @copyright  Cliff Parnitzky 2015
+ * @author     Cliff Parnitzky
+ * @package    Models
  */
-$GLOBALS['FE_MOD']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ModuleTriathlonLeagueManagerTable';
+class TriathlonLeagueTablesModel extends \Model
+{
 
-/**
- * Add content element
- */
-$GLOBALS['TL_CTE']['triathlonLeagueManager']['triathlonLeagueManagerTable'] = 'ContentTriathlonLeagueManagerTable'; 
+	/**
+	 * Table name
+	 * @var string
+	 */
+	protected static $strTable = 'tl_triathlon_league_tables';
 
-?>
+}
