@@ -40,7 +40,8 @@ namespace TriathlonLeagueManager;
  * @author     Cliff Parnitzky
  * @package    Controller
  */
-class ModuleTriathlonLeagueManagerTable extends \Module {
+class ModuleTriathlonLeagueManagerTable extends \Module
+{
 	/**
 	 * Template
 	 * @var string
@@ -51,8 +52,10 @@ class ModuleTriathlonLeagueManagerTable extends \Module {
 	 * Redirect to the selected page
 	 * @return string
 	 */
-	public function generate() {
-		if (TL_MODE == 'BE') {
+	public function generate()
+	{
+		if (TL_MODE == 'BE')
+		{
 			$objTemplate = new \BackendTemplate('be_wildcard');
 
 			$objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['FMD']['triathlonLeagueManagerTable'][0]) . ' ###';
@@ -70,15 +73,8 @@ class ModuleTriathlonLeagueManagerTable extends \Module {
 	/**
 	 * Generate module
 	 */
-	protected function compile() {
-		if ($this->triathlonLeagueTableTemplate != 'mod_triathlonLeagueManagerTable')
-		{
-			$this->strTemplate = $this->triathlonLeagueTableTemplate;
-
-			$this->Template = new \FrontendTemplate($this->strTemplate);
-			$this->Template->setData($this->arrData);
-		}
-		
+	protected function compile()
+	{
 		$objLeagueTable = \TriathlonLeagueTablesModel::findByPK($this->triathlonLeagueTable);
 		
 		if ($objLeagueTable)

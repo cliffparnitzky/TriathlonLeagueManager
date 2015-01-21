@@ -40,7 +40,7 @@ $GLOBALS['TL_LANG']['MOD']['triathlonLeagueTeams']   = array("Teams", "Managemen
 $GLOBALS['TL_LANG']['MOD']['triathlonLeagueTables']  = array("Tables", "Management of tables");
 
 /**
- * Define name and tooltip frontend modules
+ * Define name and tooltip for frontend modules
  */
 $GLOBALS['TL_LANG']['FMD']['triathlonLeagueManager']      = "Triathlon league manager";
 $GLOBALS['TL_LANG']['FMD']['triathlonLeagueManagerTable'] = array('Triathlon league table', 'Returns a recorded triathlon league table.');

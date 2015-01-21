@@ -30,7 +30,7 @@
 /**
  * Add palettes to tl_module
  */
-$GLOBALS['TL_DCA']['tl_module']['palettes']['triathlonLeagueManagerTable'] = '{title_legend},name,headline,type;{triathlonLeagueTable_legend},triathlonLeagueTable;{template_legend:hide},triathlonLeagueTableTemplate;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_module']['palettes']['triathlonLeagueManagerTable'] = '{title_legend},name,headline,type;{triathlonLeagueTable_legend},triathlonLeagueTable;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 /**
  * Add fields to tl_module
@@ -44,53 +44,5 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTable'] = array
 	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true),
 	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTableTemplate'] = array
-(
-	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableTemplate'],
-	'default'                 => 'pl_ce_list_default',
-	'exclude'                 => true,
-	'inputType'               => 'select',
-	'options_callback'        => array('tl_module_TriathlonLeagueManager', 'getLeagueTableTemplates'),
-	'eval'                    => array('tl_class'=>'clr'),
-	'sql'                     => "varchar(255) NOT NULL default ''"
-); 
-
-/**
- * Class tl_module_TriathlonLeagueManager
- *
- * Provide miscellaneous methods that are used by the data configuration array.
- * PHP version 5
- * @copyright  Cliff Parnitzky 2011-2015
- * @author     Cliff Parnitzky
- * @package    Controller
- */
-class tl_module_TriathlonLeagueManager extends tl_module
-{
-	/**
-	 * Import the back end user object
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-	}
-	
-	/**
-	 * Return all templates as array
-	 * @param object
-	 * @return array
-	 */
-	public function getLeagueTableTemplates(DataContainer $dc)
-	{
-		$intPid = $dc->activeRecord->pid;
-
-		if ($this->Input->get('act') == 'overrideAll')
-		{
-			$intPid = $this->Input->get('id');
-		}
-
-		return $this->getTemplateGroup('mod_triathlonLeagueManagerTable', $intPid);
-	}  
-}
 
 ?>

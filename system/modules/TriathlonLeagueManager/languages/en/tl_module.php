@@ -31,7 +31,6 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTable']         = array('Table', 'Please select a triathlon league table.');
-$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableTemplate'] = array('Triathlon league table template', 'Please select a template to output the triathlon league table.');
 
 /**
  * Options

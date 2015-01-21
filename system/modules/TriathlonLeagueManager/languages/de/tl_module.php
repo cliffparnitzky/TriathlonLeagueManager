@@ -31,7 +31,6 @@
  * Fields
  */
 $GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTable']         = array('Tabelle', 'Wählen Sie die Triathlon Liga Tabelle aus.');
-$GLOBALS['TL_LANG']['tl_module']['triathlonLeagueTableTemplate'] = array('Triathlon Liga Tabelle Template', 'Wählen Sie ein Template zur Ausgabe der Triathlon Liga Tabelle aus.');
 
 /**
  * Options
