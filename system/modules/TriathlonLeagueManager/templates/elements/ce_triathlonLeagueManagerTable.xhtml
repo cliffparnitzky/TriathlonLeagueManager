@@ -9,13 +9,13 @@
 <table cellspacing="0" cellpadding="0" border="0" class="ligatable">
 	<thead>
 		<tr>
-			<td><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['place']; ?></td>
-			<td><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['team']; ?></td>
+			<th><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['place']; ?></th>
+			<th><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['team']; ?></th>
 <?php if ($this->columnType == 'wp_pz'): ?>
-			<td class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['scoringPoints']; ?></td>
-			<td class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['placeNumber']; ?></td>
+			<th class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['scoringPoints']; ?></th>
+			<th class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['placeNumber']; ?></th>
 <?php elseif ($this->columnType == 'pkt'): ?>
-			<td class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['points']; ?></td>
+			<th class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['points']; ?></th>
 <?php endif; ?>
 		</tr>
 	</thead>
