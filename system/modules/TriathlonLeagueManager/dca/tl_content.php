@@ -30,7 +30,7 @@
 /**
  * Add palettes to tl_content
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['triathlonLeagueManagerTable'] = '{title_legend},type,headline;{triathlonLeagueTable_legend},triathlonLeagueTable;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['triathlonLeagueManagerTable'] = '{type_legend},type,headline;{triathlonLeagueTable_legend},triathlonLeagueTable;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 
 /**
  * Add fields to tl_content
