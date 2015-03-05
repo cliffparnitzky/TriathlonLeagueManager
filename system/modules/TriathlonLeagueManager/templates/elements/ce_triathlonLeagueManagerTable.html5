@@ -9,8 +9,8 @@
 <table cellspacing="0" cellpadding="0" border="0" class="ligatable">
 	<thead>
 		<tr>
-			<th><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['place']; ?></th>
-			<th><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['team']; ?></th>
+			<th class="place"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['place']; ?></th>
+			<th class="team"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['team']; ?></th>
 <?php if ($this->columnType == 'wp_pz'): ?>
 			<th class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['scoringPoints']; ?></th>
 			<th class="points"><?php echo $GLOBALS['TL_LANG']['TriathlonLeagueManager']['thead']['placeNumber']; ?></th>
