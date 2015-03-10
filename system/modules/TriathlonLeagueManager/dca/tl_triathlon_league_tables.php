@@ -312,7 +312,7 @@ class tl_triathlon_league_tables extends Backend
 			'exclude'          => true,
 			'inputType'        => 'select',
 			'options_callback' => array('tl_triathlon_league_tables', 'getUnusedTeams'),
-			'eval'             => array('style'=>'width: 300px;', 'includeBlankOption'=>true, 'mandatory'=>true, 'submitOnChange'=>true)
+			'eval'             => array('chosen'=>true, 'style'=>'width: 300px;', 'includeBlankOption'=>true, 'mandatory'=>true, 'submitOnChange'=>true)
 		);
 		
 		if (tl_triathlon_league_tables::$selectedColumnType == 'wp_pz')
