@@ -312,7 +312,7 @@ class tl_triathlon_league_tables extends Backend
 			'exclude'          => true,
 			'inputType'        => 'select',
 			'options_callback' => array('tl_triathlon_league_tables', 'getUnusedTeams'),
-			'eval'             => array('chosen'=>true, 'style'=>'width: 300px;', 'includeBlankOption'=>true, 'mandatory'=>true, 'submitOnChange'=>true)
+			'eval'             => array('chosen'=>true, 'style'=>'width: 280px;', 'includeBlankOption'=>true, 'mandatory'=>true, 'submitOnChange'=>true)
 		);
 		
 		if (tl_triathlon_league_tables::$selectedColumnType == 'wp_pz')
@@ -322,7 +322,7 @@ class tl_triathlon_league_tables extends Backend
 				'label'            => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['tableScoringPoints'],
 				'exclude'          => true,
 				'inputType'        => 'text',
-				'eval'             => array('style'=>'width: 150px;', 'mandatory'=>true, 'rgxp'=>'digit')
+				'eval'             => array('style'=>'width: 130px;', 'mandatory'=>true, 'rgxp'=>'digit')
 			);
 			
 			$arrColumns['tablePlaceNumber'] = array
@@ -330,7 +330,7 @@ class tl_triathlon_league_tables extends Backend
 				'label'            => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['tablePlaceNumber'],
 				'exclude'          => true,
 				'inputType'        => 'text',
-				'eval'             => array('style'=>'width: 150px;', 'mandatory'=>true, 'rgxp'=>'digit')
+				'eval'             => array('style'=>'width: 130px;', 'mandatory'=>true, 'rgxp'=>'digit')
 			);
 		}
 		else if (tl_triathlon_league_tables::$selectedColumnType == 'pkt')
@@ -340,7 +340,7 @@ class tl_triathlon_league_tables extends Backend
 				'label'            => &$GLOBALS['TL_LANG']['tl_triathlon_league_tables']['tablePoints'],
 				'exclude'          => true,
 				'inputType'        => 'text',
-				'eval'             => array('style'=>'width: 300px;', 'mandatory'=>true, 'rgxp'=>'digit')
+				'eval'             => array('style'=>'width: 280px;', 'mandatory'=>true, 'rgxp'=>'digit')
 			);
 		}
 		

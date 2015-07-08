@@ -41,7 +41,11 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['triathlonLeagueTable'] = array
 	'exclude'                 => true,
 	'inputType'               => 'select',
 	'options'                 => TriathlonLeagueManagerHelper::getTablesForBackend(),
-	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true),
+	'eval'                    => array('mandatory'=>true, 'tl_class'=>'w50', 'includeBlankOption'=>true, 'chosen'=>true),
+	'wizard' => array
+	(
+		array('TriathlonLeagueManagerHelper', 'getEditLeagueTableWizard')
+	),
 	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
 
