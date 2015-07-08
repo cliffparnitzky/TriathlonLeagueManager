@@ -30,7 +30,7 @@
 /**
  * Run in a custom namespace, so the class can be replaced
  */
-namespace TriathlonLeagueManager;
+namespace CliffParnitzky\Contao\TriathlonLeagueManager;
 
 /**
  * Class TriathlonLeagueTablesModel
@@ -94,5 +94,15 @@ class TriathlonLeagueManagerHelper
 		}
 	
 		return $arrTeams;
+	}
+	
+	/**
+	 * Return the edit league table wizard
+	 * @param \Contao\DataContainer
+	 * @return string
+	 */
+	public static function getEditLeagueTableWizard(\Contao\DataContainer $dc)
+	{
+		return ($dc->value < 1) ? '' : ' <a href="contao/main.php?do=triathlonLeagueTables&amp;act=edit&amp;id=' . $dc->value . '&amp;popup=1&amp;nb=1&amp;rt=' . REQUEST_TOKEN . '" title="' . sprintf(specialchars($GLOBALS['TL_LANG']['tl_content']['editalias'][1]), $dc->value) . '" style="padding-left:3px" onclick="Backend.openModalIframe({\'width\':768,\'title\':\'' . specialchars(str_replace("'", "\\'", sprintf($GLOBALS['TL_LANG']['tl_content']['editalias'][1], $dc->value))) . '\',\'url\':this.href});return false">' . \Contao\Image::getHtml('alias.gif', $GLOBALS['TL_LANG']['tl_content']['editalias'][0], 'style="vertical-align:top"') . '</a>';
 	}
 }
