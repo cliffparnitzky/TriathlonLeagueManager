@@ -36,13 +36,14 @@ array_insert($GLOBALS['BE_MOD'], array_search("system", array_keys($GLOBALS['BE_
 	(
 		'triathlonLeagueTeams' => array
 		(
-			'tables' => array('tl_triathlon_league_teams'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_teams.png'
+			'tables'     => array('tl_triathlon_league_teams'),
+			'icon'       => 'system/modules/TriathlonLeagueManager/assets/icon_teams.png',
+			'stylesheet' => 'system/modules/TriathlonLeagueManager/assets/css/triathlon_league_manager_be.css'
 		),
 		'triathlonLeagueTables' => array
 		(
-			'tables' => array('tl_triathlon_league_tables'),
-			'icon'   => 'system/modules/TriathlonLeagueManager/assets/icon_tables.png'
+			'tables'     => array('tl_triathlon_league_tables'),
+			'icon'       => 'system/modules/TriathlonLeagueManager/assets/icon_tables.png'
 		)
 	)
 )); 

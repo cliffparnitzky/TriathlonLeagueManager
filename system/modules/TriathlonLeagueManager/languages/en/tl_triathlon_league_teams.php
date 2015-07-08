@@ -51,4 +51,9 @@ $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['edit']   = array('Edit team', 
 $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['copy']   = array('Duplicate team', 'Duplicate team ID %s');
 $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['delete'] = array('Delete team', 'Delete team ID %s');
 
+/**
+ * Messages
+ */
+$GLOBALS['TL_LANG']['tl_triathlon_league_teams']['warn_no_logo'] = "No logo selected";
+
 ?>

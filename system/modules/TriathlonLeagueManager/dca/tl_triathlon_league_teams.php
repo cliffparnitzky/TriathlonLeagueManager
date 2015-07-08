@@ -202,6 +202,10 @@ class tl_triathlon_league_teams extends Backend
 				$label = Image::getHTML($objFile->path) . " " . $label;
 			}
 		}
+		else
+		{
+			$label .= '<span class="tl_warn_no_logo">' . $GLOBALS['TL_LANG']['tl_triathlon_league_teams']['warn_no_logo'] . '</span>';
+		}
 		
 		return $label;
 	}
