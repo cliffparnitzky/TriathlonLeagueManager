@@ -44,6 +44,7 @@ $GLOBALS['TL_LANG']['TriathlonLeagueManager']['league']['1_bundesliga']   = "1. 
 $GLOBALS['TL_LANG']['TriathlonLeagueManager']['league']['2_bundesliga']   = "2. Bundesliga";
 $GLOBALS['TL_LANG']['TriathlonLeagueManager']['league']['3_regionalliga'] = "Regionalliga";
 $GLOBALS['TL_LANG']['TriathlonLeagueManager']['league']['4_landesliga']   = "Landesliga";
+$GLOBALS['TL_LANG']['TriathlonLeagueManager']['league']['5_verbandsliga'] = "Verbandsliga";
 
 /**
  * Rating types

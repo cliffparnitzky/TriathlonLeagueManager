@@ -151,7 +151,7 @@ $GLOBALS['TL_DCA']['tl_triathlon_league_tables'] = array
 			'sorting'                 => true,
 			'search'                  => true,
 			'inputType'               => 'select',
-			'options'                 => array('1_bundesliga', '2_bundesliga', '3_regionalliga', '4_landesliga'),
+			'options'                 => array('1_bundesliga', '2_bundesliga', '3_regionalliga', '4_landesliga', '5_verbandsliga'),
 			'reference'               => &$GLOBALS['TL_LANG']['TriathlonLeagueManager']['league'],
 			'eval'                    => array('mandatory'=>true, 'includeBlankOption'=>true, 'tl_class'=>'w50'),
 			'sql'                     => "varchar(64) NOT NULL default ''"
